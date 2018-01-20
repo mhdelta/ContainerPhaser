@@ -1,50 +1,21 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
 
 function preload() {
-
-    //  You can fill the preloader with as many assets as your game requires
-
-    //  Here we are loading an image. The first parameter is the unique
-    //  string by which we'll identify the image later in our code.
-
-    //  The second parameter is the URL of the image (relative)
-    game.load.image('phaser', './img.png');
-
+    game.load.atlasJSONHash('bot', 'running_bot.png', 'running_bot.json');
 }
-
-var sprite;
 
 function create() {
 
-    //  To make the sprite move we need to enable Arcade Physics
-    game.physics.startSystem(Phaser.Physics.ARCADE);
+    //  This sprite is using a texture atlas for all of its animation data
+    var bot = game.add.sprite(200, 200, 'bot');
 
-    sprite = game.add.sprite(game.world.centerX, game.world.centerY, 'phaser');
-    sprite.anchor.set(0.5);
+    //  Here we add a new animation called 'run'
+    //  We haven't specified any frames because it's using every frame in the texture atlas
+    bot.animations.add('run');
 
-    //  And enable the Sprite to have a physics body:
-    game.physics.arcade.enable(sprite);
-
-}
-
-function update () {
-
-    //  If the sprite is > 8px away from the pointer then let's move to it
-    if (game.physics.arcade.distanceToPointer(sprite, game.input.activePointer) > 8)
-    {
-        //  Make the object seek to the active pointer (mouse or touch).
-        game.physics.arcade.moveToPointer(sprite, 300);
-    }
-    else
-    {
-        //  Otherwise turn off velocity because we're close enough to the pointer
-        sprite.body.velocity.set(0);
-    }
-
-}
-
-function render () {
-
-	game.debug.inputInfo(32, 32);
+    //  And this starts the animation playing by using its key ("run")
+    //  15 is the frame rate (15fps)
+    //  true means it will loop when it finishes
+    bot.animations.play('run', 15, true);
 
 }
