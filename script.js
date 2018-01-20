@@ -1,13 +1,19 @@
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create });
+var game = new Phaser.Game(1000, 1000, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update });
+
+var bot;
+
 
 function preload() {
     game.load.atlasJSONHash('bot', 'running_bot.png', 'running_bot.json');
+    game.load.image('background','assets/background.png');
 }
 
 function create() {
+    
+    game.add.tileSprite(0, 0, 1920, 1920, 'background');
 
     //  This sprite is using a texture atlas for all of its animation data
-    var bot = game.add.sprite(200, 200, 'bot');
+    bot = game.add.sprite(890, 600, 'bot');
 
     //  Here we add a new animation called 'run'
     //  We haven't specified any frames because it's using every frame in the texture atlas
@@ -18,4 +24,15 @@ function create() {
     //  true means it will loop when it finishes
     bot.animations.play('run', 15, true);
 
+}
+
+function update()
+{
+    bot.x -= 4;
+    if(bot.x < 0)
+    {
+        bot.x = +800;
+    }
+    // Sprite debug info
+    game.debug.spriteInfo(bot, 32, 32);
 }
