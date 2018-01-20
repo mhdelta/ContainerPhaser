@@ -1,0 +1,23 @@
+{
+  "name": "ContainerPhaser",
+  "version": "1.0.0",
+  "description": "Container for phaser first examples development",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhdelta/ContainerPhaser.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhdelta/ContainerPhaser/issues"
+  },
+  "homepage": "https://github.com/mhdelta/ContainerPhaser#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
