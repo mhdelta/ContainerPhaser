@@ -8,9 +8,9 @@ var toRight = true;
 
 function preload() {
     game.load.image('img', './assets/img.png');
-    game.load.atlasJSONHash('bot', './assets/running_bot.png', './assets/running_bot.json');
-    game.load.atlasJSONHash('bot2', './assets/running_bot.png', './assets/running_bot.json');
-    game.load.image('background', './assets/background.png');
+    game.load.atlasJSONHash('bot', './../assets/running_bot.png', './../assets/running_bot.json');
+    game.load.atlasJSONHash('bot2', './../assets/running_bot.png', './../assets/running_bot.json');
+    game.load.image('background', './../assets/PNG_backgrounds/background.png');
 
 }
 
