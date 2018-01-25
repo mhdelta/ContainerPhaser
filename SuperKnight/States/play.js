@@ -81,7 +81,7 @@ var playState = {
         }
 
         if (knight.body.x > 800) {
-            Win();
+            game.state.start('win');
         }
 
 
