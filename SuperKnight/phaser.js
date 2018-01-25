@@ -7,6 +7,7 @@ var ground;
 var toRight = true;
 var cursors;
 var ground;
+var hitplatform;
 
 
 function preload() {
@@ -76,7 +77,7 @@ function update() {
 
     knight.body.velocity.x = 0;
 
-    var hitplatform = game.physics.arcade.collide(knight, platforms);
+    hitplatform = game.physics.arcade.collide(knight, platforms);
 
 
     if (cursors.right.isDown) {
@@ -84,8 +85,7 @@ function update() {
         knight.scale.setTo(0.3, 0.3);
         // knight.animations.stop('stand');
         knight.animations.play('run');
-    }
-    else if (cursors.left.isDown) {
+    } else if (cursors.left.isDown) {
         knight.body.velocity.x = -150;
         knight.scale.setTo(-0.3, 0.3);
         // knight.animations.stop('stand');
@@ -95,9 +95,9 @@ function update() {
     }
     if (cursors.up.isDown && knight.body.touching.down && hitplatform) {
         knight.body.velocity.y = -400;
-
         knight.animations.play('jump');
     }
+
 
     game.debug.spriteInfo(knight, 32, 32);
     // game.debug.body(knight);
