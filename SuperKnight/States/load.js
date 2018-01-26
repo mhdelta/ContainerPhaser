@@ -6,7 +6,7 @@ var loadState = {
         });
 
         game.load.image('background', './../../assets/maxresdefault.jpg');
-        game.load.atlasJSONHash('knight', './../../assets/medieval/Knight/runHash.png', './../../assets/medieval/Knight/runHash.json');
+        game.load.atlasJSONHash('knight', './../../assets/medieval/Knight/nightHash.png', './../../assets/medieval/Knight/nightHash.json');
         game.load.image('ground', './../../assets/platform.png');
     },
 
